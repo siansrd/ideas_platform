@@ -15,9 +15,7 @@ class List extends React.Component {
     request.open('GET', url);
     request.onload = function () {
       var data = JSON.parse(request.responseText);
-      this.setState({
-        {entries: data}
-      });
+      this.setState({entries: data});
     }.bind(this);
     request.send(null);
   }
