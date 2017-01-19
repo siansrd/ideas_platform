@@ -17,16 +17,25 @@ class List extends React.Component {
     });
   }
 
-  // mapEntries(){
-  //   this.state.entries.map(entry => {
-  //     console.log(entry)
-  //   })
-  // }
+  mapEntries(){
+    if (!this.state.entries) return;
+    let formattedEntries = this.state.entries.map((entry, i) => { 
+      return (
+        <div key={i}>
+          <div>{entry.title}</div>
+          <div>{entry.content}</div>
+          <div>{entry.date}</div>
+        </div>
+      )
+    })
+    return formattedEntries;
+  }
 
   render(){
     return (
       <div>
         <p>List</p>
+        <div>{this.mapEntries()}</div>
       </div>
     )
   }
