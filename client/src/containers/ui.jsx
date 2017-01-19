@@ -7,7 +7,7 @@ class UI extends React.Component {
 
   render(){
     return(
-      <div><h1>Flint</h1>
+      <div><h1>ideas_platform</h1>
         <h3><Link to='/about'>About</Link></h3>
         <h3><Link to='/list'>List</Link></h3>
         {this.props.children}

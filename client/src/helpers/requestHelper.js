@@ -2,17 +2,13 @@ import Entry from '../models/entry.js';
 
 const RequestHelper = {
 
-  getEntries: function(url) {
+  getEntries: function(url, callback) {
     const request = new XMLHttpRequest();
-    request.open("GET", url);
-    request.onload = function() {
-      if(request.status === 200) {
-        console.log('got the data');
-        console.log(request.responseText);
-        const sampleEntries = JSON.parse(request.responseText);
-        console.log(sampleEntries)
-      }
-    };
+    request.open('GET', url);
+    request.onload = () => {
+      var data = JSON.parse(request.responseText);
+      callback(data)
+    }
     request.send(null);
   }
 }

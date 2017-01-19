@@ -1,27 +1,29 @@
 import React from 'react';
+import RequestHelper from '../helpers/requestHelper.js';
 
 class List extends React.Component {
 
   constructor(props){
     super(props);
     this.state = {
-
+      entries: null
     }
   }
 
-  componentDidMount() {
-    var url = '/api/entries';
-    var request = new XMLHttpRequest();
-    request.open('GET', url);
-    request.onload = function () {
-      var data = JSON.parse(request.responseText);
-      this.setState({entries: data});
-    }.bind(this);
-    request.send(null);
+  componentDidMount(){
+    const url = '/api/entries';
+    RequestHelper.getEntries(url, (data) => {
+      this.setState({entries: data})
+    });
   }
 
+  // mapEntries(){
+  //   this.state.entries.map(entry => {
+  //     console.log(entry)
+  //   })
+  // }
+
   render(){
-    console.log(this.state.entries)
     return (
       <div>
         <p>List</p>
