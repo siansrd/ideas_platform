@@ -1,18 +1,18 @@
 config = {
-  entry: "./src/app.js",
+  entry: __dirname + "/src/app.js",
   output: {
     filename: "bundle.js",
-    path: "./build"
+    path: __dirname + "/build"
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx']
   },
   module:{
     loaders: [
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel', // 'babel-loader' is also a legal name to reference
+        loader: 'babel-loader',
         query: {
           presets: ['react', 'es2015']
         }

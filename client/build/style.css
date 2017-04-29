@@ -1,0 +1,53 @@
+body, p {
+  font-family: 'Helvetica';
+}
+
+h1 {
+  display:inline-block;
+}
+
+#nav-main {
+  position:relative;
+  display:inline-block;
+}
+.nav-list {
+  list-style-type: none; 
+}
+.nav-item {
+  float:left;
+  display:inline;
+  zoom:1;
+}
+.nav-item a {
+  display:block;
+  padding:15px 20px;
+  margin: 0 10px;
+  color:#FFF;
+  background:#34495E;
+  text-decoration: none;
+}
+
+.nav-item:first-child a {
+  margin-left: 0;
+}
+
+.nav-item a:hover {
+  background:#2C3E50;
+}
+
+#entry-list {
+  width: 60%;
+}
+
+.entry-single {
+  margin-bottom: 30px;
+}
+
+.entry-content {
+  margin-bottom: 10px;
+}
+
+.entry-date {
+  
+}
+

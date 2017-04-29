@@ -21,10 +21,10 @@ class List extends React.Component {
     if (!this.state.entries) return;
     let formattedEntries = this.state.entries.map((entry, i) => { 
       return (
-        <div key={i}>
-          <div>{entry.title}</div>
-          <div>{entry.content}</div>
-          <div>{entry.date}</div>
+        <div key={i} className='entry-single'>
+          <h3 className='entry-title'>{entry.title}</h3>
+          <div className='entry-content'>{entry.content}</div>
+          <div className='entry-date'>{entry.date}</div>
         </div>
       )
     })
@@ -34,8 +34,8 @@ class List extends React.Component {
   render(){
     return (
       <div>
-        <p>List</p>
-        <div>{this.mapEntries()}</div>
+        <h2>Ideas</h2>
+        <div id='entry-list'>{this.mapEntries()}</div>
       </div>
     )
   }
