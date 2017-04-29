@@ -1,7 +1,8 @@
 const Entry = ({title, content, author, date}) => {
   this.title = title,
   this.content = content,
-  this.author = author
+  this.author = author,
+  this.date = date
 }
 
-export default Entry;
+module.exports = Entry;

@@ -13,14 +13,11 @@ class UI extends React.Component {
           <nav id="nav-main">
             <ul className="nav-list">
               <li className="nav-item"><Link to='/about'>About</Link></li>
-              <li className="nav-item"><Link id='nav-item' to='/list'>List</Link></li>
+              <li className="nav-item"><Link to='/list'>List</Link></li>
             </ul>
           </nav>
         </header>
-        
-        <div>
-          {this.props.children}
-        </div>
+      
 
         <footer>
           <p>cc 2017</p>

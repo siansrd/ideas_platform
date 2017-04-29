@@ -13,8 +13,8 @@ window.onload = () => {
       <div>
         <Route path="/" component={UI}/>
         <Route exact path="/"component={List} />
-        <Route path="list" component={List} />
-        <Route path="about" component={About} />
+        <Route path="/list" component={List} />
+        <Route path="/about" component={About} />
       </div>
     </HashRouter>,
     document.getElementById('app')
