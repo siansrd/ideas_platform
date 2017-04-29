@@ -1,7 +1,7 @@
 import React from 'react';
-import {Link} from 'react-router';
 import About from '../components/about.jsx';
 import List from './list.jsx';
+import {Link} from 'react-router-dom'
 
 class UI extends React.Component {
 
