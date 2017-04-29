@@ -17,11 +17,6 @@ class UI extends React.Component {
             </ul>
           </nav>
         </header>
-      
-
-        <footer>
-          <p>cc 2017</p>
-        </footer>
       </div>
     )
   }
