@@ -1,26 +1,18 @@
-var express = require('express');
-var app = express();
-var path = require('path');
-var fs = require('fs');
+var express = require('express')
+var app     = express()
+var path    = require('path')
+var bodyParser = require('body-parser')
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
 
-var ENTRIES_FILE = path.join(__dirname + '/client/src/helpers/seeds.json');
+var APP_PORT = 3000
 
-// app.get('/api/entries', function(req,res) {
-//   fs.readFile(ENTRIES_FILE, function(err, data) {
-//     if(err) {
-//       console.error(err);
-//       return;
-//     }
-//     res.json(JSON.parse(data));
-//   });
-// });
-
-app.use(express.static('client/build'));
+app.use(express.static('client/build'))
 app.use(require('./controllers'))
 
-var server = app.listen(3000, function () {
-  var host = server.address().address;
-  var port = server.address().port;
+var server = app.listen(APP_PORT, function () {
+  var host = server.address().address
+  var port = server.address().port
 
-  console.log('Example app listening at http://%s:%s', host, port);
+  console.log('Ideas Platform listening at http://%s:%s', host, port)
 });
