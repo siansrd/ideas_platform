@@ -12,17 +12,23 @@ entryRouter.get('/', function(req, res) {
 })
 
 entryRouter.post('/', function(req, res) {
-  console.log(req.body)
   var entry =  new Entry({
     title:   req.body.title,
     author:  req.body.author,
     content: req.body.content,
     date:    Date.now()
   })
-  entryQuery.add(entry, function(results){
+  entryQuery.add(entry, function(results) {
     res.json(results)
   })
 })
+
+entryRouter.get('/:id', function(req, res) {
+  entryQuery.getById(req.params.id, function(results) {
+	res.json(results)
+  })
+})
+
 
 /*
 // update :id?

@@ -27,6 +27,15 @@ EntryQuery.prototype = {
         })
       }
     })
+  },
+  
+  getById: function(entryId, onQueryFinished) {
+    MongoClient.connect(this.url, function(err, db) {
+      var collection = db.collection('entries')
+      collection.find(ObjectId(entryId)).toArray(function(err, entry){
+        onQueryFinished(entry)
+      });
+    })
   }
 /*
   update: function(entry, onQueryFinished) {
