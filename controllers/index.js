@@ -7,5 +7,6 @@ router.get('/', function (req, res) {
 });
 
 router.use('/api/entries', require('./entries_controller.js'))
+// add users
 
 module.exports = router

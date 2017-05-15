@@ -23,7 +23,7 @@ EntryQuery.prototype = {
         collection.insert(entry)
         collection.find().toArray(function(err, entries) {              
           console.log(entries)
-          onQueryFinished()  // do we need onQueryFinished? not really
+          onQueryFinished(entries)
         })
       }
     })
@@ -33,10 +33,27 @@ EntryQuery.prototype = {
     MongoClient.connect(this.url, function(err, db) {
       var collection = db.collection('entries')
       collection.find(ObjectId(entryId)).toArray(function(err, entry){
+		// ? error handling
         onQueryFinished(entry)
       });
     })
-  }
+  },
+  
+  deleteById: function(entryId, onQueryFinished) {
+    MongoClient.connect(this.url, function(err, db) {
+      var collection = db.collection('entries')
+      collection.remove({_id: ObjectId(entryId)}, function(err, entry){
+		   if (err) {
+		     console.log(err)
+		   }
+		   console.log(entry)
+           onQueryFinished(entry)
+        }) // 1 /* justOnce */)
+    })
+  },
+  
+  // TODO    //  entries.splice(entryId, 1);
+  // delete
 /*
   update: function(entry, onQueryFinished) {
     MongoClient.connect(this.url, function(err, db){

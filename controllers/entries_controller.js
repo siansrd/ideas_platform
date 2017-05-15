@@ -29,10 +29,16 @@ entryRouter.get('/:id', function(req, res) {
   })
 })
 
+entryRouter.delete('/:id', function(req, res) {
+  entryQuery.deleteById(req.params.id, function(results) {
+    res.json(results)
+  })
+})
 
+// TODO update
 /*
-// update :id?
 entryRouter.put('/:id', function(req, res) {
+  // TODO error check id is in the db
   var entry = new Entry({
     title:   req.body.title,
     author:  req.body.author
@@ -44,12 +50,9 @@ entryRouter.put('/:id', function(req, res) {
 });
 
 // ?
-entryRouter.delete('/:id', function(req, res) {
-  films.splice(req.params.id, 1);
-  res.json({data: films});
-});
 
-//add review
+// TODO entry has a list of comments
+//  add review -- as mode lfor add comment TODO data model
 filmRouter.post('/:id/reviews', function(req, res) {
   var film = films[req.params.id];
   var review1 = new Review({
