@@ -10,9 +10,11 @@ EntryQuery.prototype = {
   all: function(onQueryFinished) {
     MongoClient.connect(this.url, function(err, db) {
       var collection = db.collection('entries')
+      // ?? if (db) ...
       collection.find().toArray(function(err, docs){
         onQueryFinished(docs)
-      });
+        db.close()
+      })
     })
   },
 
@@ -24,6 +26,7 @@ EntryQuery.prototype = {
         collection.find().toArray(function(err, entries) {              
           console.log(entries)
           onQueryFinished(entries)
+          db.close()
         })
       }
     })
@@ -35,7 +38,8 @@ EntryQuery.prototype = {
       collection.find(ObjectId(entryId)).toArray(function(err, entry){
 		// ? error handling
         onQueryFinished(entry)
-      });
+        db.close()
+      })
     })
   },
   
@@ -48,41 +52,35 @@ EntryQuery.prototype = {
 		   }
 		   console.log(entry)
            onQueryFinished(entry)
-        }) // 1 /* justOnce */)
+           db.close()
+        })
     })
   },
   
-  // TODO    //  entries.splice(entryId, 1);
-  // delete
-/*
-  update: function(entry, onQueryFinished) {
+  update: function(req, onQueryFinished) {
     MongoClient.connect(this.url, function(err, db){
       if(db) {
+		// ?TODO check req is not null and all elements present or rely on frontend
         var collection = db.collection('entries')
-        collection.remove(entry)  // or actually update in place ?
-        collection.insert(entry)
-        collection.find().toArray(function(err, docs) {
-          //console.log(docs)
-          onQueryFinished(docs)
+        collection.update(
+          { _id: ObjectId(req.params.id) },
+          {
+			title:   req.body.title,
+            author:  req.body.author,
+            content: req.body.content,
+            date:    req.body.date 
+		  },
+		  { upsert: true }
+        )
+        collection.find().toArray(function(err, entries) {              
+          console.log(entries)
+          onQueryFinished(entries)
+          db.close()
         })
-        
       }
     })
   }
   
-  remove: function(entry, onQueryFinished) {
-    MongoClient.connect(this.url, function(err, db){
-      if(db) {
-        var collection = db.collection('entries')
-        collection.remove(entry)
-        collection.find().toArray(function(err, docs) {
-          //console.log(docs)
-          onQueryFinished(docs)
-        })
-      }
-    })
-  }
-  */
 }
 
 module.exports = EntryQuery

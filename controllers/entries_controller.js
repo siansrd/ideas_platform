@@ -35,33 +35,24 @@ entryRouter.delete('/:id', function(req, res) {
   })
 })
 
-// TODO update
-/*
 entryRouter.put('/:id', function(req, res) {
-  // TODO error check id is in the db
-  var entry = new Entry({
-    title:   req.body.title,
-    author:  req.body.author
-    content: req.body.content
-    date:    req.body.date
-  });
-  films[req.params.id] = entry;  // params id?
-  res.json({data: entries});
-});
+  entryQuery.update(req, function(results) {
+    res.json(results)
+  })
+})
 
-// ?
-
+/*
 // TODO entry has a list of comments
-//  add review -- as mode lfor add comment TODO data model
-filmRouter.post('/:id/reviews', function(req, res) {
-  var film = films[req.params.id];
-  var review1 = new Review({
-    comment: "Amaze",
-    rating: 10,
-    author: "Val"
+// add comment TODO data model
+entryRouter.post('/:id/comments', function(req, res) {
+  var entry = entries[req.params.id];
+  var comment = new Comment({
+    comment: "OMG",
+    author:  userId
+    date:    Date.now()
   });
-  film.addReview(review1);
-  res.json({data: films});
+  entries.addComment(comment);
+  res.json({data: entries});
 });
 */
 
