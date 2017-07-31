@@ -6,25 +6,25 @@ class List extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      entries: null
+      ideas: null
     }
   }
 
   componentDidMount(){
-    const url = '/api/entries';
+    const url = 'http://localhost:5000/api/ideas/';
     RequestHelper.getEntries(url, (data) => {
-      this.setState({entries: data})
+      this.setState({ideas: data})
     });
   }
 
-  mapEntries(){
-    if (!this.state.entries) return;
-    let formattedEntries = this.state.entries.map((entry, i) => { 
+  mapIdeas(){
+    if (!this.state.ideas) return;
+    let formattedEntries = this.state.ideas.map((idea, i) => { 
       return (
-        <div key={i} className='entry-single'>
-          <h3 className='entry-title'>{entry.title}</h3>
-          <div className='entry-content'>{entry.content}</div>
-          <div className='entry-date'>{entry.date}</div>
+        <div key={i} className='idea-single'>
+          <h3 className='idea-title'>{idea.title}</h3>
+          <div className='idea-content'>{idea.summary}</div>
+          <div className='idea-date'>{idea.created_at} by {idea.user.name}</div>
         </div>
       )
     })
@@ -35,7 +35,7 @@ class List extends React.Component {
     return (
       <div>
         <h2>Ideas</h2>
-        <div id='entry-list'>{this.mapEntries()}</div>
+        <div id='entry-list'>{this.mapIdeas()}</div>
       </div>
     )
   }
