@@ -1,16 +1,9 @@
 var express = require('express')
 var app     = express()
-var path    = require('path')
-var bodyParser = require('body-parser')
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: true}))
-
-var APP_PORT = 3000
 
 app.use(express.static('client/build'))
-app.use(require('./controllers'))
 
-var server = app.listen(APP_PORT, function () {
+var server = app.listen(3000, function () {
   var host = server.address().address
   var port = server.address().port
 
