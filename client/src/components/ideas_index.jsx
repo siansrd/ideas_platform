@@ -1,7 +1,7 @@
 import React from 'react';
 import RequestHelper from '../helpers/requestHelper.js';
 
-class List extends React.Component {
+class IdeasIndex extends React.Component {
 
   constructor(props){
     super(props);
@@ -44,4 +44,4 @@ class List extends React.Component {
 
 }
 
-export default List;
+export default IdeasIndex;
