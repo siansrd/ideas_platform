@@ -12,14 +12,14 @@ class List extends React.Component {
 
   componentDidMount(){
     const url = 'http://localhost:5000/api/ideas/';
-    RequestHelper.getEntries(url, (data) => {
+    RequestHelper.getIdeas(url, (data) => {
       this.setState({ideas: data})
     });
   }
 
   mapIdeas(){
     if (!this.state.ideas) return;
-    let formattedEntries = this.state.ideas.map((idea, i) => { 
+    let formattedIdeas = this.state.ideas.map((idea, i) => { 
       return (
         <div key={i} className='idea-single'>
           <h3 className='idea-title'>{idea.title}</h3>
@@ -30,7 +30,7 @@ class List extends React.Component {
         </div>
       )
     })
-    return formattedEntries;
+    return formattedIdeas;
   }
 
   render(){
