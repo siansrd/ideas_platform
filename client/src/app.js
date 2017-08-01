@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import UI     from './containers/ui.jsx';
-import List   from './containers/list.jsx';
-import About  from './components/about.jsx';
+import Nav from './components/nav.jsx';
+import IdeasIndex from './components/ideas_index.jsx';
+import About from './components/about.jsx';
 import Footer from './components/footer.jsx';
 
 ReactDOM.render(
   <BrowserRouter>
     <div>
-      <UI />
+      <Nav />
       <Switch>
         <Route path="/about" component={About} />
-        <Route path="/" component={List} />
+        <Route path="/" component={IdeasIndex} />
       </Switch>
       <Footer />
     </div>

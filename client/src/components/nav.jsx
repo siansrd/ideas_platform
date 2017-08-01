@@ -1,7 +1,7 @@
 import React from 'react';
 import About from './about.jsx';
-import List from '../containers/list.jsx';
-import {Link} from 'react-router-dom'
+import IdeasIndex from '../components/ideas_index.jsx';
+import { Link } from 'react-router-dom'
 
 class Nav extends React.Component {
 
@@ -13,7 +13,7 @@ class Nav extends React.Component {
           <nav id="nav-main">
             <ul className="nav-list">
               <li className="nav-item"><Link to='/about'>About</Link></li>
-              <li className="nav-item"><Link to='/list'>List</Link></li>
+              <li className="nav-item"><Link to='/'>List</Link></li>
             </ul>
           </nav>
         </header>
