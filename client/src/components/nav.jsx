@@ -12,8 +12,8 @@ class Nav extends React.Component {
           <h1>ideas_platform</h1>
           <nav id="nav-main">
             <ul className="nav-list">
+              <li className="nav-item"><Link to='/'>Home</Link></li>
               <li className="nav-item"><Link to='/about'>About</Link></li>
-              <li className="nav-item"><Link to='/'>List</Link></li>
             </ul>
           </nav>
         </header>

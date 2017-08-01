@@ -1,47 +1,33 @@
-import React from 'react';
-import RequestHelper from '../helpers/requestHelper.js';
+import React from 'react'
+import _ from 'lodash'
+import { connect } from 'react-redux'
+import { fetchIdeas } from '../actions'
 
 class IdeasIndex extends React.Component {
 
-  constructor(props){
-    super(props);
-    this.state = {
-      ideas: null
-    }
-  }
-
   componentDidMount(){
-    const url = 'http://localhost:5000/api/ideas/';
-    RequestHelper.getIdeas(url, (data) => {
-      this.setState({ideas: data})
-    });
+    this.props.fetchIdeas()
   }
 
-  mapIdeas(){
-    if (!this.state.ideas) return;
-    let formattedIdeas = this.state.ideas.map((idea, i) => { 
-      return (
-        <div key={i} className='idea-single'>
-          <h3 className='idea-title'>{idea.title}</h3>
-          <div className='idea-content'>{idea.summary}</div>
-          <div>{idea.category.name}</div>
-          <div>{idea.created_at}</div>
-          <div>{idea.user.name}</div>
-        </div>
-      )
-    })
-    return formattedIdeas;
+  renderIdeas(){
+    return _.map(this.props.ideas, (idea) => {
+      return <li key={idea.id}>{idea.title}</li>
+    }) 
   }
 
   render(){
     return (
       <div>
         <h2>Ideas</h2>
-        <div id='entry-list'>{this.mapIdeas()}</div>
+        <div id='entry-list'>{this.renderIdeas()}</div>
       </div>
     )
   }
 
 }
 
-export default IdeasIndex;
+function mapStateToProps( state ) {
+  return { ideas: state.ideas }
+}
+
+export default connect(mapStateToProps, { fetchIdeas } )(IdeasIndex)

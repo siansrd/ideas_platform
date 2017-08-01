@@ -1,5 +1,11 @@
-import { FETCH_IDEAS } from '../actions/actions_index'
+import { FETCH_IDEAS } from '../actions'
+import _ from 'lodash'
 
 export default function(state = {}, action) {
-  return state
+  switch(action.type) {
+    case FETCH_IDEAS: 
+      return _.mapKeys(action.payload.data, 'id')
+    default:
+      return state
+  }
 }
