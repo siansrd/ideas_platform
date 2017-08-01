@@ -2,12 +2,14 @@ import React from 'react';
 import About from './about.jsx';
 import IdeasIndex from '../components/ideas_index.jsx';
 import { Link } from 'react-router-dom'
+import Toolbar from 'react-md/lib/Toolbars/Toolbar'
 
 class Nav extends React.Component {
 
   render(){
     return(
       <div>
+        <Toolbar colored={true} title={"idea_platform"}></Toolbar>
         <header>
           <h1>ideas_platform</h1>
           <nav id="nav-main">
