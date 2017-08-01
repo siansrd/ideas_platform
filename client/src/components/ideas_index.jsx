@@ -2,6 +2,7 @@ import React from 'react'
 import _ from 'lodash'
 import { connect } from 'react-redux'
 import { fetchIdeas } from '../actions'
+import { Link } from 'react-router-dom'
 
 class IdeasIndex extends React.Component {
 
@@ -11,7 +12,11 @@ class IdeasIndex extends React.Component {
 
   renderIdeas(){
     return _.map(this.props.ideas, (idea) => {
-      return <li key={idea.id}>{idea.title}</li>
+      return (
+        <Link to={`/ideas/${idea.id}`} key={idea.id}>
+          <li>{idea.title}</li>
+        </Link>
+      )
     }) 
   }
 
