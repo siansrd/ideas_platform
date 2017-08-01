@@ -47,7 +47,8 @@ h1 {
   margin-bottom: 10px;
 }
 
-.idea-date {
-  
+footer {
+  position: absolute;
+  bottom: 0;
 }
 
