@@ -24,7 +24,9 @@ class List extends React.Component {
         <div key={i} className='idea-single'>
           <h3 className='idea-title'>{idea.title}</h3>
           <div className='idea-content'>{idea.summary}</div>
-          <div className='idea-date'>{idea.created_at} by {idea.user.name}</div>
+          <div>{idea.category.name}</div>
+          <div>{idea.created_at}</div>
+          <div>{idea.user.name}</div>
         </div>
       )
     })
