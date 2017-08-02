@@ -5,6 +5,7 @@ export const FETCH_IDEA = 'fetch_idea'
 export const FETCH_USER = 'fetch_user'
 export const CREATE_IDEA = 'create_idea'
 export const FETCH_IDEAS_BY_USER = 'fetch_ideas_by_user'
+export const DELETE_IDEA = 'delete_user'
 
 const ROUTE_URL = 'http://localhost:5000/api'
 
@@ -40,6 +41,15 @@ export function createIdea(values) {
 
   return {
     type: CREATE_IDEA,
+    payload: request
+  }
+}
+
+export function deleteIdea(id) {
+  const request = axios.delete(`${ROUTE_URL}/ideas/${id}`)
+
+  return {
+    type: DELETE_IDEA,
     payload: request
   }
 }

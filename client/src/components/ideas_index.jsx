@@ -26,7 +26,6 @@ class IdeasIndex extends React.Component {
   }
 
   render(){
-    console.log(this.props.ideas)
     return (
       <div>
         <h2>Ideas</h2>
