@@ -9,17 +9,13 @@ class Nav extends React.Component {
   render(){
     return(
       <div>
-        <Toolbar colored={true} title={"idea_platform"}></Toolbar>
-        <header>
-          <h1>ideas_platform</h1>
-          <nav id="nav-main">
-            <ul className="nav-list">
-              <li className="nav-item"><Link to='/ideas/new'>New Idea</Link></li>
-              <li className="nav-item"><Link to='/'>Home</Link></li>
-              <li className="nav-item"><Link to='/about'>About</Link></li>
-            </ul>
-          </nav>
-        </header>
+        <Toolbar colored={true} >
+          <Link to='/'>Ideas Plaform</Link>
+          <ul>
+            <li className="nav-item"><Link to='/ideas/new'>New Idea</Link></li>
+            <li className="nav-item"><Link to='/about'>About</Link></li>
+          </ul>
+        </Toolbar>
       </div>
     )
   }
