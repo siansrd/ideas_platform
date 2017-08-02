@@ -11,6 +11,7 @@ import IdeasIndex from './components/ideas_index.jsx';
 import IdeasNew from './components/ideas_new.jsx';
 import IdeasShow from './components/ideas_show.jsx'
 import About from './components/about.jsx';
+import Login from './components/login.jsx'
 import Footer from './components/footer.jsx';
 import ButtonNewIdea from './components/button_new_idea.jsx'
 
@@ -25,6 +26,7 @@ ReactDOM.render(
           <Route path="/ideas/new" component={IdeasNew} />
           <Route path="/ideas/:id" component={IdeasShow} />
           <Route path="/about" component={About} />
+          <Route path="/login" component={Login} />
           <Route path="/" component={IdeasIndex} />
         </Switch>
         <ButtonNewIdea /> 
