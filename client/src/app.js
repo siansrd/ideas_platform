@@ -14,6 +14,7 @@ import About from './components/about.jsx';
 import Login from './components/login.jsx'
 import Footer from './components/footer.jsx';
 import ButtonNewIdea from './components/button_new_idea.jsx'
+import UserDashboard from './components/user_dashboard.jsx'
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
@@ -23,6 +24,7 @@ ReactDOM.render(
       <div>
         <Nav />
         <Switch>
+          <Route path="/user/dashboard" component={UserDashboard} />
           <Route path="/ideas/new" component={IdeasNew} />
           <Route path="/ideas/:id" component={IdeasShow} />
           <Route path="/about" component={About} />

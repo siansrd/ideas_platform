@@ -12,6 +12,7 @@ class Nav extends React.Component {
           <Link to='/'>Ideas Plaform</Link>
           <ul>
             <li className="nav-item"><Link to='/login'>Login</Link></li>
+            <li className="nav-item"><Link to='/user/dashboard'>Dashboard</Link></li>
             <li className="nav-item"><Link to='/ideas/new'>New Idea</Link></li>
             <li className="nav-item"><Link to='/about'>About</Link></li>
           </ul>
