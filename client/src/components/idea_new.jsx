@@ -17,7 +17,13 @@ class IdeaNew extends Component {
   }
 
   onSubmit(values){
-    const newValues = { ...values, ["category_id"]: 41, ["user_id"]: 43, ["votes"]: 0, ["views"]:0 }
+    const newValues = { 
+      ...values, 
+      ["category_id"]: 41, 
+      ["user_id"]: this.props.user.id, 
+      ["votes"]: 0, 
+      ["views"]:0 
+    }
     this.props.createIdea(newValues)
   }
 
@@ -62,7 +68,11 @@ function validate(values){
   return errors
 }
 
+function mapStateToProps( { user } ) {
+  return { user }
+}
+
 export default reduxForm({
   validate,
   form: 'newIdeaForm'
-})( connect( null, { createIdea } )(IdeaNew) )
+})( connect( mapStateToProps, { createIdea } )(IdeaNew) )
