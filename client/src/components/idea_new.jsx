@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
+import { createIdea } from '../actions'
 
 class IdeaNew extends Component {
 
   renderField(field) {
-
     const { meta: { touched, error }} = field
-
-
     return (
       <div>
         <label>{field.label}</label>
@@ -18,9 +16,15 @@ class IdeaNew extends Component {
     )
   }
 
+  onSubmit(values){
+    const newValues = { ...values, ["category_id"]: 41, ["user_id"]: 43, ["votes"]: 0, ["views"]:0 }
+    this.props.createIdea(newValues)
+  }
+
   render() {
+    const { handleSubmit } = this.props
     return (
-      <form>
+      <form onSubmit={ handleSubmit(this.onSubmit.bind(this))}>
         <Field
           label="Title"
           name="title"
@@ -61,4 +65,4 @@ function validate(values){
 export default reduxForm({
   validate,
   form: 'newIdeaForm'
-})(IdeaNew)
+})( connect( null, { createIdea } )(IdeaNew) )
