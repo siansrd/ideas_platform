@@ -2,6 +2,13 @@
   color: white;
 }
 
+.main-nav {
+  display: flex;
+}
+
+.main-nav li {
+  width: 100px;
+}
 
 footer {
   position: fixed;
