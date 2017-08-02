@@ -13,7 +13,7 @@ class IdeasShow extends Component {
 
   renderComments() {
     const { idea } = this.props
-    if (!idea.comments) return <p>Be the first to comment</p>
+    if (!idea.comments || idea.comments.length === 0) return <ListItem primaryText="Be the first to comment" />
     return idea.comments.map((comment) => {
       return <ListItem key={comment.id} primaryText={comment.text} secondaryText={comment.user.name} />
     })
