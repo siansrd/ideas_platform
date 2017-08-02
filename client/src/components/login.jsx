@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
+import { connect } from 'react-redux'
+import { fetchUser } from '../actions'
 
 class Login extends Component {
 
@@ -14,9 +16,15 @@ class Login extends Component {
     )
   }
 
+  onSubmit(values) {
+    this.props.fetchUser(values.email)
+  }
+
   render() {
+    const { handleSubmit } = this.props
+
     return (
-      <form>
+      <form onSubmit={handleSubmit(this.onSubmit.bind(this))} >
         <Field
           label="Email"
           name="email"
@@ -48,4 +56,4 @@ function validate(values) {
 export default reduxForm({
   validate,
   form: 'loginForm'
-})(Login)
+})(connect(null, {fetchUser})(Login))
