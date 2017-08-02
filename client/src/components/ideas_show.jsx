@@ -1,12 +1,22 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchIdea } from '../actions'
+import Chip from 'react-md/lib/Chips'
+import List from 'react-md/lib/Lists/List';
+import ListItem from 'react-md/lib/Lists/ListItem';
 
 class IdeasShow extends Component {
 
-  componentWillMount() {
-    console.log("props", this.props)
+  componentDidMount() {
     this.props.fetchIdea(this.props.match.params.id)
+  }
+
+  renderComments() {
+    const { idea } = this.props
+    if (!idea.comments) return <p>Be the first to comment</p>
+    return idea.comments.map((comment) => {
+      return <ListItem key={comment.id} primaryText={comment.text} secondaryText={comment.user.name} />
+    })
   }
 
   render() {
@@ -18,6 +28,14 @@ class IdeasShow extends Component {
         <p>{ idea.description }</p>
         <p>{ idea.created_at }</p>
         <p>{ idea.user.name }</p>
+        <Chip
+          label={ idea.category.name }
+        />
+        <h4>Comments</h4>
+        <List className="md-cell md-paper md-paper--1">
+          {this.renderComments()}
+        </List>
+
       </div>
     )
   }
