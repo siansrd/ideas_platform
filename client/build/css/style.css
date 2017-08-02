@@ -1,0 +1,52 @@
+#app {
+  margin: 20px;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  color: black;
+}
+
+h2 {
+  font-size: 2.28rem;
+}
+
+.idea {
+  padding: 20px;
+  margin: 20px;
+  border: 2px solid #FBC02B;
+}
+
+.idea:hover {
+  padding: 20px;
+  border: 2px solid red;
+}
+
+.main-nav a {
+  color: white;
+}
+
+.main-nav li {
+  width: 100px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  background: white;
+}
+
+.main-nav {
+  background: #FBC02B;
+}
+
+
+/*.comments {
+  border: 1px solid grey;
+}
+
+.comment {
+  padding: 15px;
+  margin: 15px;
+  border: 1px solid grey;
+}*/

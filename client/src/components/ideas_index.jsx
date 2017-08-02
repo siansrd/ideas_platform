@@ -3,8 +3,6 @@ import _ from 'lodash'
 import { connect } from 'react-redux'
 import { fetchIdeas } from '../actions'
 import { Link } from 'react-router-dom'
-import Card from 'react-md/lib/Cards/Card'
-import CardTitle from 'react-md/lib/Cards/CardTitle'
 
 class IdeasIndex extends React.Component {
 
@@ -13,14 +11,14 @@ class IdeasIndex extends React.Component {
   }
 
   renderIdeas(){
-    return _.map(this.props.ideas, (idea) => {
+    return _.map(this.props.ideas, (idea, index) => {
       return (
-        <Card className="md-cell" key={idea.id}>
+        <div className="col s10 idea" key={idea.id}>
           <Link to={`/ideas/${idea.id}`}>
-            <CardTitle title={idea.title} />
+            <h2>{idea.title}</h2>
           </Link>
           <p>{idea.summary}</p>
-        </Card>
+        </div>
       )
     }) 
   }
@@ -29,7 +27,9 @@ class IdeasIndex extends React.Component {
     return (
       <div>
         <h2>Ideas</h2>
-        <div id='entry-list'>{this.renderIdeas()}</div>
+        <div className="row">
+          {this.renderIdeas()}
+        </div>
       </div>
     )
   }

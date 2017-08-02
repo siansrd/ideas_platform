@@ -6,18 +6,21 @@ import Toolbar from 'react-md/lib/Toolbars/Toolbar'
 class Nav extends React.Component {
 
   render(){
+
+    const nav = <Link to='/'>Home</Link>
+    const actions = [
+      <Link to='/login'>Login</Link>, 
+      <Link to='/user/dashboard'>Dashboard</Link>, 
+      <Link to='/ideas/new'>New Idea</Link>, 
+      <Link to='/about'>About</Link> 
+    ]
+
     return(
-      <div>
-        <Toolbar colored={true} >
-          <Link to='/'>Ideas Plaform</Link>
-          <ul className="main-nav">
-            <li className="nav-item"><Link to='/login'>Login</Link></li>
-            <li className="nav-item"><Link to='/user/dashboard'>Dashboard</Link></li>
-            <li className="nav-item"><Link to='/ideas/new'>New Idea</Link></li>
-            <li className="nav-item"><Link to='/about'>About</Link></li>
-          </ul>
-        </Toolbar>
-      </div>
+        <Toolbar
+          className="main-nav"
+          nav={nav} 
+          actions={actions} 
+        />
     )
   }
 
