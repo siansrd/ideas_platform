@@ -4,6 +4,7 @@ export const FETCH_IDEAS = 'fetch_ideas'
 export const FETCH_IDEA = 'fetch_idea'
 export const FETCH_USER = 'fetch_user'
 export const CREATE_IDEA = 'create_idea'
+export const FETCH_IDEAS_BY_USER = 'fetch_ideas_by_user'
 
 const ROUTE_URL = 'http://localhost:5000/api'
 
@@ -35,11 +36,19 @@ export function fetchUser(userEmail) {
 }
 
 export function createIdea(values) {
-  console.log("values in action", values)
   const request = axios.post(`${ROUTE_URL}/ideas`, values)
 
   return {
     type: CREATE_IDEA,
+    payload: request
+  }
+}
+
+export function fetchIdeasByUser(id) {
+  const request = axios.get(`${ROUTE_URL}/users/${id}/ideas`)
+
+  return {
+    type: FETCH_IDEAS_BY_USER,
     payload: request
   }
 }
