@@ -10,7 +10,7 @@ class Nav extends React.Component {
       <div>
         <Toolbar colored={true} >
           <Link to='/'>Ideas Plaform</Link>
-          <ul>
+          <ul className="main-nav">
             <li className="nav-item"><Link to='/login'>Login</Link></li>
             <li className="nav-item"><Link to='/user/dashboard'>Dashboard</Link></li>
             <li className="nav-item"><Link to='/ideas/new'>New Idea</Link></li>

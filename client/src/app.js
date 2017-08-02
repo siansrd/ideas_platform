@@ -8,7 +8,7 @@ import promise from 'redux-promise'
 import reducers from './reducers';
 import Nav from './components/nav.jsx';
 import IdeasIndex from './components/ideas_index.jsx';
-import IdeasNew from './components/ideas_new.jsx';
+import IdeaNew from './components/idea_new.jsx';
 import IdeasShow from './components/ideas_show.jsx'
 import About from './components/about.jsx';
 import Login from './components/login.jsx'
@@ -25,7 +25,7 @@ ReactDOM.render(
         <Nav />
         <Switch>
           <Route path="/user/dashboard" component={UserDashboard} />
-          <Route path="/ideas/new" component={IdeasNew} />
+          <Route path="/ideas/new" component={IdeaNew} />
           <Route path="/ideas/:id" component={IdeasShow} />
           <Route path="/about" component={About} />
           <Route path="/login" component={Login} />
