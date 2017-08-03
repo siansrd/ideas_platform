@@ -25,12 +25,17 @@ class Nav extends React.Component {
       ]
     }
 
+    let userName = ''
+    if ( this.props.user ) {
+      userName = this.props.user.name
+    }
+
     return(
         <Toolbar
           className="main-nav"
           nav={nav} 
           actions={actions} 
-        />
+        >{ userName }</Toolbar>
     )
   }
 
