@@ -23,7 +23,7 @@ class CommentsContainer extends Component {
         <div className="comments">
           {this.renderComments()}
         </div>
-        <CommentNew ideaId={this.props.idea.id} />
+        <CommentNew ideaId={idea.id} />
       </div>
 
     )

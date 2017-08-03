@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchIdea } from '../actions'
-import List from 'react-md/lib/Lists/List';
 import CommentsContainer from './comments_container'
 import Idea from './idea'
 

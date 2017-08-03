@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Toolbar from 'react-md/lib/Toolbars/Toolbar'
-import { fetchUSer } from '../actions'
 import { connect } from 'react-redux'
 
 

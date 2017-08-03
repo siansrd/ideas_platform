@@ -3,10 +3,9 @@ import { connect } from 'react-redux'
 import { fetchIdeasByUser } from '../actions'
 import { deleteIdea } from '../actions'
 import _ from 'lodash'
-import { Link } from 'react-router'
 import Card from 'react-md/lib/Cards/Card'
 import CardTitle from 'react-md/lib/Cards/CardTitle'
-import Button from 'react-md/lib/Buttons';
+import Button from 'react-md/lib/Buttons'
 
 
 class UserDashbaord extends Component {
