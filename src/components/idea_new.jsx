@@ -22,14 +22,14 @@ class IdeaNew extends Component {
 
   renderSelect(field) {
     const categoryOptions = this.props.categories.map((category, i) => {
-      return <option key={ i }>{ category.name.toUpperCase() }</option>
+      return <option value={ category.id } key={ i }>{ category.name.toUpperCase() }</option>
     })
 
     return (
       <div>
-          <label>Favorite Color</label>
+          <label>Category</label>
           <div>
-            <Field name="favoriteColor" component="select">
+            <Field name="category" component="select">
               <option>Select Category</option>
               { categoryOptions }
             </Field>
