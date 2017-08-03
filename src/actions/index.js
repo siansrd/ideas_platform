@@ -37,8 +37,9 @@ export function fetchUser(userEmail, callback) {
   }
 }
 
-export function createIdea(values) {
+export function createIdea(values, callback) {
   const request = axios.post(`${ROUTE_URL}/ideas`, values)
+    .then( () => { callback() })
 
   return {
     type: CREATE_IDEA,

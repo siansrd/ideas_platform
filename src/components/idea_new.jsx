@@ -24,7 +24,9 @@ class IdeaNew extends Component {
       ["votes"]: 0, 
       ["views"]:0 
     }
-    this.props.createIdea(newValues)
+    this.props.createIdea(newValues, () => {
+      this.props.history.push('/dashboard')
+    })
   }
 
   render() {
