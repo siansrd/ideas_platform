@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
-import { createIdea } from '../actions'
+import { createIdea, fetchCategories } from '../actions'
 
 class IdeaNew extends Component {
 
-  renderField(field) {
+  componentDidMount() {
+    this.props.fetchCategories()
+  }
+
+  renderTextField(field) {
     const { meta: { touched, error }} = field
     return (
       <div>
@@ -13,6 +17,24 @@ class IdeaNew extends Component {
         <input type="text" {...field.input} />
         { touched ? error : "" }
       </div>
+    )
+  }
+
+  renderSelect(field) {
+    const categoryOptions = this.props.categories.map((category, i) => {
+      return <option key={ i }>{ category.name.toUpperCase() }</option>
+    })
+
+    return (
+      <div>
+          <label>Favorite Color</label>
+          <div>
+            <Field name="favoriteColor" component="select">
+              <option>Select Category</option>
+              { categoryOptions }
+            </Field>
+          </div>
+        </div>
     )
   }
 
@@ -30,23 +52,29 @@ class IdeaNew extends Component {
   }
 
   render() {
+    
     const { handleSubmit } = this.props
     return (
       <form onSubmit={ handleSubmit(this.onSubmit.bind(this))}>
         <Field
           label="Title"
           name="title"
-          component={ this.renderField }
+          component={ this.renderTextField }
         />
         <Field
           label="Summary"
           name="summary"
-          component={ this.renderField }
+          component={ this.renderTextField }
         />
         <Field
           label="Idea"
           name="description"
-          component={ this.renderField }
+          component={ this.renderTextField }
+        />
+        <Field
+          label="Category"
+          name="category"
+          component={ this.renderSelect.bind(this) }
         />
         <button type="submit">Submit</button>
       </form>
@@ -70,11 +98,11 @@ function validate(values){
   return errors
 }
 
-function mapStateToProps( { user } ) {
-  return { user }
+function mapStateToProps( { user, categories } ) {
+  return { user, categories }
 }
 
 export default reduxForm({
   validate,
   form: 'newIdeaForm'
-})( connect( mapStateToProps, { createIdea } )(IdeaNew) )
+})( connect( mapStateToProps, { createIdea, fetchCategories } )(IdeaNew) )

@@ -6,6 +6,7 @@ export const FETCH_USER = 'fetch_user'
 export const CREATE_IDEA = 'create_idea'
 export const FETCH_IDEAS_BY_USER = 'fetch_ideas_by_user'
 export const DELETE_IDEA = 'delete_user'
+export const FETCH_CATEGORIES = 'fetch_categories'
 
 const ROUTE_URL = 'http://localhost:5000/api'
 
@@ -64,4 +65,13 @@ export function fetchIdeasByUser(id) {
     type: FETCH_IDEAS_BY_USER,
     payload: request
   }
+}
+
+export function fetchCategories() {
+  const request = axios.get(`${ROUTE_URL}/categories`)
+
+    return {
+      type: FETCH_CATEGORIES,
+      payload: request
+    }
 }
