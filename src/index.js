@@ -31,7 +31,6 @@ ReactDOM.render(
           <Route path="/login" component={Login} />
           <Route path="/" component={IdeasIndex} />
         </Switch>
-        <ButtonNewIdea /> 
         <Footer />
       </div>
     </BrowserRouter>
