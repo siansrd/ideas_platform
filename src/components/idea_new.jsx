@@ -6,6 +6,16 @@ import SelectField from 'react-md/lib/SelectFields';
 
 class IdeaNew extends Component {
 
+  constructor() {
+    super()
+    this.renderSelect = this.renderSelect.bind(this)
+    this.handleCategoryChange = this.handleCategoryChange.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
+    this.state = {
+      categoryId: 200
+    }
+  }
+
   componentDidMount() {
     this.props.fetchCategories()
   }
@@ -21,22 +31,29 @@ class IdeaNew extends Component {
     )
   }
 
-  renderSelect() {
-    return this.props.categories.map((category, i) => {
-      return <option key={i} value={category.id}>{category.name.toUpperCase()}</option>
+  handleCategoryChange(value) {
+    const category = this.props.categories.find((cat) =>{
+      return cat.name === value.toLowerCase()
     })
+    this.setState({categoryId: category.id})
   }
 
   onSubmit(values){
-    console.log("values", values)
     const newValues = { 
       ...values, 
       ["user_id"]: this.props.user.id, 
       ["votes"]: 0, 
-      ["views"]:0 
+      ["views"]:0,
+      ["category_id"]: this.state.categoryId
     }
     this.props.createIdea(newValues, () => {
       this.props.history.push('/dashboard')
+    })
+  }
+
+  renderSelect() {
+    return this.props.categories.map((category, i) => {
+      return category.name.toUpperCase()
     })
   }
 
@@ -60,13 +77,19 @@ class IdeaNew extends Component {
           name="description"
           component={ this.renderTextField }
         />
-        <label>Category</label>
-        <Field 
-          name="category_id" 
-          component="select">
-          <option>Select Category</option>
-          {this.renderSelect()}
-        </Field>
+        <SelectField
+           id="category"
+           label="Category"
+           placeholder="Select Category"
+           menuItems={ this.renderSelect() }
+           value={ this.state.categoryId }
+           onChange={ this.handleCategoryChange }
+           required
+           errorText="A state is required"
+           className="md-cell"
+           itemLabel="name"
+           itemValue="abbreviation"
+         />    
         <button type="submit">Submit</button>
       </form>
     )
