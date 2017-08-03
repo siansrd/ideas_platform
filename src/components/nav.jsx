@@ -1,19 +1,30 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Toolbar from 'react-md/lib/Toolbars/Toolbar'
+import { fetchUSer } from '../actions'
+import { connect } from 'react-redux'
 
 
 class Nav extends React.Component {
 
+
   render(){
 
+    let actions
     const nav = <Link to='/'>Home</Link>
-    const actions = [
-      <Link to='/login'>Login</Link>, 
-      <Link to='/dashboard'>Dashboard</Link>, 
-      <Link to='/ideas/new'>New Idea</Link>, 
-      <Link to='/about'>About</Link> 
-    ]
+
+    if( !this.props.user.id ) {
+      actions = [
+        <Link to='/login'>Log In</Link>, 
+        <Link to='/about'>About</Link> 
+      ]
+    } else {
+      actions = [
+        <Link to='/dashboard'>Dashboard</Link>, 
+        <Link to='/ideas/new'>New Idea</Link>, 
+        <Link to='/about'>About</Link> 
+      ]
+    }
 
     return(
         <Toolbar
@@ -26,6 +37,10 @@ class Nav extends React.Component {
 
 }
 
-export default Nav;
+function mapStateToProps( { user } ){
+  return { user }
+}
+
+export default connect( mapStateToProps )(Nav);
 
 

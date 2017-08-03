@@ -12,7 +12,8 @@ class IdeaNew extends Component {
     this.handleCategoryChange = this.handleCategoryChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
     this.state = {
-      categoryId: 200
+      categoryName: "Select a Category",
+      categoryId: 0
     }
   }
 
@@ -35,7 +36,10 @@ class IdeaNew extends Component {
     const category = this.props.categories.find((cat) =>{
       return cat.name === value.toLowerCase()
     })
-    this.setState({categoryId: category.id})
+    this.setState({
+      categoryName: value,
+      categoryId: category.id
+    })
   }
 
   onSubmit(values){
@@ -82,13 +86,12 @@ class IdeaNew extends Component {
            label="Category"
            placeholder="Select Category"
            menuItems={ this.renderSelect() }
-           value={ this.state.categoryId }
+           value={ this.state.categoryName }
            onChange={ this.handleCategoryChange }
            required
-           errorText="A state is required"
            className="md-cell"
-           itemLabel="name"
-           itemValue="abbreviation"
+           itemLabel="category"
+    
          />    
         <button type="submit">Submit</button>
       </form>
