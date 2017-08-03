@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import { createIdea, fetchCategories } from '../actions'
+import SelectField from 'react-md/lib/SelectFields';
 
 class IdeaNew extends Component {
 
@@ -20,28 +21,16 @@ class IdeaNew extends Component {
     )
   }
 
-  renderSelect(field) {
-    const categoryOptions = this.props.categories.map((category, i) => {
-      return <option value={ category.id } key={ i }>{ category.name.toUpperCase() }</option>
+  renderSelect() {
+    return this.props.categories.map((category, i) => {
+      return <option key={i} value={category.id}>{category.name.toUpperCase()}</option>
     })
-
-    return (
-      <div>
-          <label>Category</label>
-          <div>
-            <Field name="category" component="select">
-              <option>Select Category</option>
-              { categoryOptions }
-            </Field>
-          </div>
-        </div>
-    )
   }
 
   onSubmit(values){
+    console.log("values", values)
     const newValues = { 
       ...values, 
-      ["category_id"]: 41, 
       ["user_id"]: this.props.user.id, 
       ["votes"]: 0, 
       ["views"]:0 
@@ -71,11 +60,13 @@ class IdeaNew extends Component {
           name="description"
           component={ this.renderTextField }
         />
-        <Field
-          label="Category"
-          name="category"
-          component={ this.renderSelect.bind(this) }
-        />
+        <label>Category</label>
+        <Field 
+          name="category_id" 
+          component="select">
+          <option>Select Category</option>
+          {this.renderSelect()}
+        </Field>
         <button type="submit">Submit</button>
       </form>
     )
