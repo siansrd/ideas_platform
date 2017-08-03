@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchIdea } from '../actions'
-import Chip from 'react-md/lib/Chips'
 import List from 'react-md/lib/Lists/List';
 import ListItem from 'react-md/lib/Lists/ListItem';
 import Comment from './comment'
+import Idea from './idea'
 
 class IdeasShow extends Component {
 
@@ -27,20 +27,13 @@ class IdeasShow extends Component {
     if (!idea) return <div>Loading...</div>
     return (
       <div className="row">
-        <div className="col s6">
-          <h3>{ idea.title }</h3>
-          <p>{ idea.description }</p>
-          <p>{ idea.created_at }</p>
-          <p>{ idea.user.name }</p>
-          <Chip label={ idea.category.name } />
-        </div>
+        <Idea idea={idea} />
         <div className="col s6">
           <h4>Comments</h4>
           <div className="comments">
             {this.renderComments()}
           </div>
         </div>
-
       </div>
     )
   }

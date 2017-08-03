@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function(props) {
 
-  const { comment } = props.comment
+  const { comment } = props
 
   return (
     <div className="comment" key={comment.id}> 
