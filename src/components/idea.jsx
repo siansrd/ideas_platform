@@ -11,6 +11,7 @@ export default function(props) {
       <p>{ idea.description }</p>
       <p>{ idea.created_at }</p>
       <p>{ idea.user.name }</p>
+      <p>Votes: { idea.votes }</p>
       <Chip label={ idea.category.name } />
     </div>
   )
