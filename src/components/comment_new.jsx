@@ -16,12 +16,24 @@ class CommentNew extends Component {
     )
   }
 
+  onSubmit(values) {
+    const newValues = {
+      ...values,
+      ["idea_id"]: this.props.ideaId,
+      ["user_id"]: this.props.user.id
+
+    }
+    this.props.createComment(newValues)
+  }
+
   render() {
+
+    const { handleSubmit } = this.props
     return (
-      <form>
+      <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) }>
         <Field
           label="Comment"
-          name="comment"
+          name="text"
           component={ this.renderTextField }
         />
         <button type="submit">Submit</button>
@@ -40,6 +52,11 @@ function validate(values){
   return errors
 }
 
+function mapStateToProps( { user } ){
+  return { user }
+}
+
 export default reduxForm({
+  validate,
   form: 'newCommentForm'
-})( connect( null, { createComment })(CommentNew) )
+})( connect( mapStateToProps, { createComment })(CommentNew) )

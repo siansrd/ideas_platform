@@ -71,12 +71,19 @@ export function fetchIdeasByUser(id) {
 export function fetchCategories() {
   const request = axios.get(`${ROUTE_URL}/categories`)
 
-    return {
-      type: FETCH_CATEGORIES,
-      payload: request
-    }
+  return {
+    type: FETCH_CATEGORIES,
+    payload: request
+  }
 }
 
-export function createComment() {
-  return {}
+export function createComment(values) {
+  console.log(values)
+  const request = axios.post(`${ROUTE_URL}/comments`, values)
+
+  return {
+    type: CREATE_COMMENT,
+    payload: request
+  }
+
 }
