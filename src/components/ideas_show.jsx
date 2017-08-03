@@ -4,6 +4,7 @@ import { fetchIdea } from '../actions'
 import Chip from 'react-md/lib/Chips'
 import List from 'react-md/lib/Lists/List';
 import ListItem from 'react-md/lib/Lists/ListItem';
+import Comment from './comment'
 
 class IdeasShow extends Component {
 
@@ -16,12 +17,7 @@ class IdeasShow extends Component {
     if (!idea.comments || idea.comments.length === 0) return <ListItem primaryText="Be the first to comment" />
     return idea.comments.map((comment) => {
       return ( 
-        <div className="comment" key={comment.id}> 
-          <blockquote>
-            <p>{comment.text}</p>
-            <p>{comment.user.name}</p>
-          </blockquote>
-        </div>
+        <Comment comment={comment} />
       )
     })
   }
