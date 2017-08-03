@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Comment from './comment'
 import CommentNew from './comment_new'
 import ListItem from 'react-md/lib/Lists/ListItem'
+import { connect } from 'react-redux'
 
 class CommentsContainer extends Component {
 
@@ -16,6 +17,12 @@ class CommentsContainer extends Component {
   }
 
   render() {
+
+    let commentForm = ""
+    if( this.props.user.id ) {
+      commentForm = <CommentNew ideaId={this.props.idea.id} />
+    }
+
     const { idea } = this.props
     return (
       <div className="col s6">
@@ -23,13 +30,16 @@ class CommentsContainer extends Component {
         <div className="comments">
           {this.renderComments()}
         </div>
-        <CommentNew ideaId={idea.id} />
+        { commentForm }
       </div>
 
     )
   }
 
-
 }
 
-export default CommentsContainer
+function mapStateToProps( { user } ){
+  return { user }
+}
+
+export default connect(mapStateToProps)(CommentsContainer)
