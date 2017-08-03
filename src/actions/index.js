@@ -27,8 +27,9 @@ export function fetchIdea(id) {
   }
 }
 
-export function fetchUser(userEmail) {
+export function fetchUser(userEmail, callback) {
   const request = axios.get(`${ROUTE_URL}/users/${userEmail}`)
+    // .then( () => { callback() })
 
   return {
     type: FETCH_USER,

@@ -17,7 +17,9 @@ class Login extends Component {
   }
 
   onSubmit(values) {
-    this.props.fetchUser(values.email)
+    this.props.fetchUser(values.email, () => {
+      this.props.history.push('/dashboard')
+    })
   }
 
   render() {

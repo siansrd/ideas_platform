@@ -10,7 +10,7 @@ class Nav extends React.Component {
     const nav = <Link to='/'>Home</Link>
     const actions = [
       <Link to='/login'>Login</Link>, 
-      <Link to='/user/dashboard'>Dashboard</Link>, 
+      <Link to='/dashboard'>Dashboard</Link>, 
       <Link to='/ideas/new'>New Idea</Link>, 
       <Link to='/about'>About</Link> 
     ]

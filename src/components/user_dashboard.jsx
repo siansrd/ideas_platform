@@ -26,6 +26,7 @@ class UserDashbaord extends Component {
 
 
   renderIdeas() {
+  
     const { ideasByUser } = this.props
     if ( ideasByUser && ideasByUser.length === 0) {
       return <p>You have no ideas</p>

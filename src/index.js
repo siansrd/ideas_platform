@@ -24,7 +24,7 @@ ReactDOM.render(
       <div>
         <Nav />
         <Switch>
-          <Route path="/user/dashboard" component={UserDashboard} />
+          <Route path="/dashboard" component={UserDashboard} />
           <Route path="/ideas/new" component={IdeaNew} />
           <Route path="/ideas/:id" component={IdeasShow} />
           <Route path="/about" component={About} />
