@@ -10,7 +10,7 @@ class CommentsContainer extends Component {
     if (!idea.comments || idea.comments.length === 0) return <ListItem primaryText="Be the first to comment" />
     return idea.comments.map((comment) => {
       return ( 
-        <Comment comment={comment} />
+        <Comment key={comment.id} comment={comment} />
       )
     })
   }
