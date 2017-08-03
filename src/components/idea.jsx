@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import Chip from 'react-md/lib/Chips'
 import Button from 'react-md/lib/Buttons'
+import { updateIdea } from '../actions'
+import { connect } from 'react-redux'
 
 class Idea extends Component {
 
   handleVoteClick(){
-    const votes = this.props.idea.votes + 1
-    console.log(votes)
+    const { idea } = this.props
+    const votes = idea.votes + 1
+    this.props.updateIdea( idea.id, { votes })
   }
 
   render() {
@@ -25,4 +28,4 @@ class Idea extends Component {
 
 }
 
-export default Idea
+export default connect( null, { updateIdea } )(Idea)

@@ -8,6 +8,7 @@ export const FETCH_IDEAS_BY_USER = 'fetch_ideas_by_user'
 export const DELETE_IDEA = 'delete_user'
 export const FETCH_CATEGORIES = 'fetch_categories'
 export const CREATE_COMMENT = 'create_comment'
+export const UPDATE_IDEA = 'update_idea'
 
 const ROUTE_URL = 'http://localhost:5000/api'
 
@@ -78,12 +79,19 @@ export function fetchCategories() {
 }
 
 export function createComment(values) {
-  console.log(values)
   const request = axios.post(`${ROUTE_URL}/comments`, values)
 
   return {
     type: CREATE_COMMENT,
     payload: request
   }
+}
 
+export function updateIdea(id, values) {
+  const request = axios.put(`${ROUTE_URL}/ideas/${id}`, values)
+
+  return {
+    type: UPDATE_IDEA,
+    payload: request
+  }
 }
