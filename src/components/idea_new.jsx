@@ -47,7 +47,7 @@ class IdeaNew extends Component {
       ...values, 
       ["user_id"]: this.props.user.id, 
       ["votes"]: 0, 
-      ["views"]:0,
+      ["views"]: 0,
       ["category_id"]: this.state.categoryId
     }
     this.props.createIdea(newValues, () => {
