@@ -26,7 +26,11 @@ class UserDashbaord extends Component {
 
 
   renderIdeas() {
-    return _.map(this.props.ideasByUser, (idea) => {
+    const { ideasByUser } = this.props
+    if ( ideasByUser && ideasByUser.length === 0) {
+      return <p>You have no ideas</p>
+    }
+    return _.map(ideasByUser, (idea) => {
       return (
         <Card className="md-cell" key={idea.id}>
           <Button icon primary 

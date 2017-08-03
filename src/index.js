@@ -35,7 +35,7 @@ ReactDOM.render(
         <Footer />
       </div>
     </BrowserRouter>
-  </Provider>,
-  document.getElementById('app')
+  </Provider>
+  , document.querySelector('.container')
 )
 

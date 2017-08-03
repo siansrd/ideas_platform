@@ -1,12 +1,13 @@
 {
-  "name": "countries_api_react",
+  "name": "ideas_platform_rails",
   "version": "1.0.0",
-  "description": "",
+  "private": true,
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd client && webpack -w",
-    "start": "nodemon server.js"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "author": "",
   "license": "ISC",
@@ -18,6 +19,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
     "express": "^4.14.0",
+    "react-scripts": "^1.0.10",
     "webpack": "^2.2.0"
   },
   "dependencies": {
