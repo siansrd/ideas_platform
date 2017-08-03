@@ -21,12 +21,14 @@ class UserDashbaord extends Component {
   }
 
   onDeleteClick(id) {
-    this.props.deleteIdea(id)
+    this.props.deleteIdea(id, () => {
+      this.props.fetchIdeasByUser(this.props.user.id)
+    })
   }
 
 
   renderIdeas() {
-  
+
     const { ideasByUser } = this.props
     if ( ideasByUser && ideasByUser.length === 0) {
       return <p>You have no ideas</p>

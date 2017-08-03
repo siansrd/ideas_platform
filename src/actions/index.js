@@ -47,8 +47,9 @@ export function createIdea(values, callback) {
   }
 }
 
-export function deleteIdea(id) {
+export function deleteIdea(id, callback) {
   const request = axios.delete(`${ROUTE_URL}/ideas/${id}`)
+    .then( () => { callback() })
 
   return {
     type: DELETE_IDEA,
