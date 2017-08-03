@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Field, reduxForm } from 'redux-form'
 
 class CommentNew extends Component {
 
@@ -10,4 +11,6 @@ class CommentNew extends Component {
 
 }
 
-export default CommentNew
+export default reduxForm({
+  form: 'newCommentForm'
+})(CommentNew)

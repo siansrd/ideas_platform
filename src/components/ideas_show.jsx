@@ -34,7 +34,7 @@ class IdeasShow extends Component {
           <div className="comments">
             {this.renderComments()}
           </div>
-          <CommentNew />
+          <CommentNew ideaId={idea.id} />
         </div>
       </div>
     )
