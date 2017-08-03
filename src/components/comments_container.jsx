@@ -16,6 +16,7 @@ class CommentsContainer extends Component {
   }
 
   render() {
+    const { idea } = this.props
     return (
       <div className="col s6">
         <h4>Comments</h4>

@@ -12,6 +12,7 @@ class IdeasShow extends Component {
   }
 
   render() {
+    if (!this.props.idea) return <p>Loading</p>
     const { idea } = this.props
     if (!idea) return <div>Loading...</div>
     return (

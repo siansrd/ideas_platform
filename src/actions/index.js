@@ -7,6 +7,7 @@ export const CREATE_IDEA = 'create_idea'
 export const FETCH_IDEAS_BY_USER = 'fetch_ideas_by_user'
 export const DELETE_IDEA = 'delete_user'
 export const FETCH_CATEGORIES = 'fetch_categories'
+export const CREATE_COMMENT = 'create_comment'
 
 const ROUTE_URL = 'http://localhost:5000/api'
 
@@ -74,4 +75,8 @@ export function fetchCategories() {
       type: FETCH_CATEGORIES,
       payload: request
     }
+}
+
+export function createComment() {
+  return {}
 }
