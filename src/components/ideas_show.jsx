@@ -4,6 +4,7 @@ import { fetchIdea } from '../actions'
 import List from 'react-md/lib/Lists/List';
 import ListItem from 'react-md/lib/Lists/ListItem';
 import Comment from './comment'
+import CommentNew from './comment_new'
 import Idea from './idea'
 
 class IdeasShow extends Component {
@@ -33,6 +34,7 @@ class IdeasShow extends Component {
           <div className="comments">
             {this.renderComments()}
           </div>
+          <CommentNew />
         </div>
       </div>
     )
