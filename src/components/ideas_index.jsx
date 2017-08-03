@@ -18,6 +18,7 @@ class IdeasIndex extends React.Component {
             <h2>{idea.title}</h2>
           </Link>
           <p>{idea.summary}</p>
+          <p>Votes: {idea.votes}</p>
         </div>
       )
     }) 
