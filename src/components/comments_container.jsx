@@ -23,7 +23,6 @@ class CommentsContainer extends Component {
       commentForm = <CommentNew ideaId={this.props.idea.id} />
     }
 
-    const { idea } = this.props
     return (
       <div className="col s6">
         <h4>Comments</h4>
