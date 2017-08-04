@@ -22,7 +22,7 @@ class Nav extends React.Component {
       actions = [
         <Link to='/dashboard'>Dashboard</Link>, 
         <Link to='/about'>About</Link> ,
-        <Link to='/ideas/new'><Button icon>add_circle</Button></Link>, 
+        <Link to='/ideas/new'><Button icon>add_circle</Button></Link>
       ]
     }
 
@@ -37,6 +37,7 @@ class Nav extends React.Component {
           nav={nav} 
           actions={actions} 
         >{ userName }</Toolbar>
+
     )
   }
 

@@ -8,7 +8,7 @@ import CardTitle from 'react-md/lib/Cards/CardTitle'
 import Button from 'react-md/lib/Buttons'
 
 
-class UserDashbaord extends Component {
+class UserIdeas extends Component {
 
   constructor(props) {
     super(props)
@@ -50,8 +50,6 @@ class UserDashbaord extends Component {
   render() {
     return (
       <div>
-        <h2>UserDashbaord</h2>
-        <h3>My ideas</h3>
         <div className="col s10" >
           {this.renderIdeas()}
         </div>
@@ -65,4 +63,4 @@ function mapStateToProps( { ideasByUser, user } ) {
   return { ideasByUser, user }
 }
 
-export default connect(mapStateToProps, { fetchIdeasByUser, deleteIdea })(UserDashbaord)
+export default connect(mapStateToProps, { fetchIdeasByUser, deleteIdea })(UserIdeas)
