@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Toolbar from 'react-md/lib/Toolbars/Toolbar'
 import { connect } from 'react-redux'
+import Button from 'react-md/lib/Buttons'
 
 
 class Nav extends React.Component {
@@ -10,18 +11,18 @@ class Nav extends React.Component {
   render(){
 
     let actions
-    const nav = <Link to='/'>Home</Link>
+    const nav = <Link to='/'><Button icon>lightbulb_outline</Button></Link>
 
     if( !this.props.user.id ) {
       actions = [
-        <Link to='/login'>Log In</Link>, 
-        <Link to='/about'>About</Link> 
+        <Link to='/about'>About</Link>,
+        <Link to='/login'><Button icon>account_circle</Button></Link>
       ]
     } else {
       actions = [
         <Link to='/dashboard'>Dashboard</Link>, 
-        <Link to='/ideas/new'>New Idea</Link>, 
-        <Link to='/about'>About</Link> 
+        <Link to='/about'>About</Link> ,
+        <Link to='/ideas/new'><Button icon>add_circle</Button></Link>, 
       ]
     }
 

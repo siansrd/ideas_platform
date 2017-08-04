@@ -22,7 +22,7 @@ class Idea extends Component {
         <p>Votes: { idea.votes } | { prettyDate(idea.created_at) } | { idea.user.name }</p>
         <p>{ idea.description }</p>
         <Chip label={ idea.category.name } />
-        <Button icon primary onClick={ this.handleVoteClick.bind(this) }>favorite</Button>
+        <Button icon primary onClick={ this.handleVoteClick.bind(this) }>thumb_up</Button>
       </div>
     )
   }
