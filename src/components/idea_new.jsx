@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import { createIdea, fetchCategories } from '../actions'
-import SelectField from 'react-md/lib/SelectFields';
+import SelectField from 'react-md/lib/SelectFields'
+import Button from 'react-md/lib/Buttons/Button'
 
 class IdeaNew extends Component {
 
@@ -91,9 +92,8 @@ class IdeaNew extends Component {
            required
            className="md-cell"
            itemLabel="category"
-    
-         />    
-        <button type="submit">Submit</button>
+         /> 
+         <Button type="submit" flat label="Submit" />   
       </form>
     )
   }

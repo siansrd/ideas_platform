@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import { fetchUser } from '../actions'
+import Button from 'react-md/lib/Buttons/Button'
 
 class Login extends Component {
 
@@ -37,7 +38,7 @@ class Login extends Component {
           name="password"
           component={ this.renderField }
         />
-        <button type="submit">Login</button>
+        <Button type="submit" flat label="Log In" />   
       </form>
     )
   }

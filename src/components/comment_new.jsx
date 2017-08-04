@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import { createComment } from '../actions'
+import Button from 'react-md/lib/Buttons/Button'
 
 class CommentNew extends Component {
 
@@ -36,7 +37,7 @@ class CommentNew extends Component {
           name="text"
           component={ this.renderTextField }
         />
-        <button type="submit">Submit</button>
+        <Button type="submit" flat label="Submit" />   
       </form>
     )
   }
