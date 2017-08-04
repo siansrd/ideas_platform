@@ -44,3 +44,8 @@ footer {
 .content-body {
   margin: 30px 5%;
 }
+
+#login-form {
+  max-width: 300px;
+  margin: 0 auto;
+}

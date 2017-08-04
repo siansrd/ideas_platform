@@ -28,7 +28,7 @@ class Login extends Component {
 
     return (
       <div className="content-body">
-        <form onSubmit={handleSubmit(this.onSubmit.bind(this))} >
+        <form onSubmit={handleSubmit(this.onSubmit.bind(this))} id="login-form">
           <Field
             label="Email"
             name="email"
