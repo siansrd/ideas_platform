@@ -34,25 +34,27 @@ class UserDashbaord extends Component {
     }
     return _.map(ideasByUser, (idea) => {
       return (
-        <Card className="md-cell" key={idea.id}>
-          <Button icon primary 
-          onClick={ () => { this.onDeleteClick(idea.id) }}
-          >X</Button>
+        <Card raise={ true } key={idea.id}>
           <CardTitle title={idea.title} />
-          <p>{idea.summary}</p>
-          <p>{idea.description}</p>
+          <p className="md-card-text">{idea.summary}</p>
+          <p className="md-card-text">{idea.description}</p>
+          <div className="md-card-text" ><Button 
+          icon primary 
+          onClick={ () => { this.onDeleteClick(idea.id) }}
+          >delete</Button></div>
         </Card>
       )
     }) 
   }
 
-
-
   render() {
     return (
       <div>
         <h2>UserDashbaord</h2>
-        <div id='entry-list'>{this.renderIdeas()}</div>
+        <h3>My ideas</h3>
+        <div className="col s10" >
+          {this.renderIdeas()}
+        </div>
       </div>
     )
   }
