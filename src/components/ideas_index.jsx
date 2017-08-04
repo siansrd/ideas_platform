@@ -5,6 +5,7 @@ import { fetchIdeas } from '../actions'
 import { Link } from 'react-router-dom'
 import Card from 'react-md/lib/Cards/Card'
 import CardTitle from 'react-md/lib/Cards/CardTitle'
+import { prettyDate } from '../helpers/formatter'
 
 class IdeasIndex extends React.Component {
 
@@ -15,12 +16,12 @@ class IdeasIndex extends React.Component {
   renderIdeas(){
     return _.map(this.props.ideas, (idea, index) => {
       return (
-        <div className="col s10" key={idea.id}>
-          <Link to={`/ideas/${idea.id}`}>
+        <div className="col s10" key={ idea.id }>
+          <Link to={`/ideas/${ idea.id }`}>
             <Card raise={ true }>
               <CardTitle title={ idea.title } />
-              <p className="md-card-text">{idea.summary}</p>
-              <p className="md-card-text">Votes: {idea.votes}</p>
+              <p className="md-card-text">{ idea.summary }</p>
+              <p className="md-card-text">Votes: { idea.votes } | { prettyDate(idea.created_at) } | { idea.user.name }</p>
             </Card>
           </Link>
         </div>

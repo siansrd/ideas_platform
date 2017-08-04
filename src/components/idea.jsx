@@ -3,6 +3,7 @@ import Chip from 'react-md/lib/Chips'
 import Button from 'react-md/lib/Buttons'
 import { updateIdea } from '../actions'
 import { connect } from 'react-redux'
+import { prettyDate } from '../helpers/formatter'
 
 class Idea extends Component {
 
@@ -18,7 +19,7 @@ class Idea extends Component {
     return (
       <div className="col s6">
         <h3>{ idea.title }</h3>
-        <p>Votes: { idea.votes } | { idea.created_at } | { idea.user.name }</p>
+        <p>Votes: { idea.votes } | { prettyDate(idea.created_at) } | { idea.user.name }</p>
         <p>{ idea.description }</p>
         <Chip label={ idea.category.name } />
         <Button icon primary onClick={ this.handleVoteClick.bind(this) }>favorite</Button>
