@@ -15,9 +15,11 @@ class IdeasShow extends Component {
     const { idea } = this.props
     if (!idea) return <div>Loading...</div>
     return (
-      <div className="row">
-        <Idea idea={idea} />
-        <CommentsContainer idea={idea} />
+      <div className="content-body">
+        <div className="row">
+          <Idea idea={idea} />
+          <CommentsContainer idea={idea} />
+        </div>
       </div>
     )
   }

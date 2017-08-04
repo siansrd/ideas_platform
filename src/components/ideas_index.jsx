@@ -39,9 +39,11 @@ class IdeasIndex extends React.Component {
       console.log("no user")
       return (
         <div>
-          <h2>Ideas</h2>
-          <div className="row">
-            {this.renderIdeas()}
+          <div className="content-body">
+            <div className="row">
+              <h2>Ideas</h2>
+              {this.renderIdeas()}
+            </div>
           </div>
         </div>
       )
@@ -51,12 +53,12 @@ class IdeasIndex extends React.Component {
           <Tabs tabId="tab">
             <Tab label="All Ideas">
               <div className="row">
-                {this.renderIdeas()}
+                <div className="content-body">{this.renderIdeas()}</div>
               </div>
             </Tab>
             <Tab label="My Ideas">
               <div className="row">
-                <UserIdeas />
+                <div className="content-body"><UserIdeas /></div>
               </div>
             </Tab>
           </Tabs>

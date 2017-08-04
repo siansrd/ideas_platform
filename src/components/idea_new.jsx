@@ -66,35 +66,37 @@ class IdeaNew extends Component {
     
     const { handleSubmit } = this.props
     return (
-      <form onSubmit={ handleSubmit(this.onSubmit.bind(this))}>
-        <Field
-          label="Title"
-          name="title"
-          component={ this.renderTextField }
-        />
-        <Field
-          label="Summary"
-          name="summary"
-          component={ this.renderTextField }
-        />
-        <Field
-          label="Idea"
-          name="description"
-          component={ this.renderTextField }
-        />
-        <SelectField
-           id="category"
-           label="Category"
-           placeholder="Select Category"
-           menuItems={ this.renderSelect() }
-           value={ this.state.categoryName }
-           onChange={ this.handleCategoryChange }
-           required
-           className="md-cell"
-           itemLabel="category"
-         /> 
-         <Button type="submit" flat label="Submit" />   
-      </form>
+      <div className="content-body">
+        <form onSubmit={ handleSubmit(this.onSubmit.bind(this))}>
+          <Field
+            label="Title"
+            name="title"
+            component={ this.renderTextField }
+          />
+          <Field
+            label="Summary"
+            name="summary"
+            component={ this.renderTextField }
+          />
+          <Field
+            label="Idea"
+            name="description"
+            component={ this.renderTextField }
+          />
+          <SelectField
+             id="category"
+             label="Category"
+             placeholder="Select Category"
+             menuItems={ this.renderSelect() }
+             value={ this.state.categoryName }
+             onChange={ this.handleCategoryChange }
+             required
+             className="md-cell"
+             itemLabel="category"
+           /> 
+           <Button type="submit" flat label="Submit" />   
+        </form>
+      </div>
     )
   }
 
