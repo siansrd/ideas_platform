@@ -19,8 +19,8 @@ class IdeasIndex extends React.Component {
           <Link to={`/ideas/${idea.id}`}>
             <Card raise={ true }>
               <CardTitle title={ idea.title } />
-              <p>{idea.summary}</p>
-              <p>Votes: {idea.votes}</p>
+              <p className="md-card-text">{idea.summary}</p>
+              <p className="md-card-text">Votes: {idea.votes}</p>
             </Card>
           </Link>
         </div>
