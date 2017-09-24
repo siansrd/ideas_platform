@@ -10,6 +10,12 @@ class IdeasShow extends Component {
     this.props.fetchIdea(this.props.match.params.id)
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.idea !== this.props.fetchIdea(this.props.match.params.id)) {
+      this.render()
+    }
+  }
+
   render() {
     if (!this.props.idea) return <p>Loading</p>
     const { idea } = this.props
