@@ -13,7 +13,7 @@ import IdeasShow from './components/ideas_show.jsx'
 import About from './components/about.jsx';
 import Login from './components/login.jsx'
 import Footer from './components/footer.jsx';
-import UserIdeas from './components/user_ideas.jsx'
+import Dashboard from './components/dashboard.jsx'
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
@@ -23,7 +23,7 @@ ReactDOM.render(
       <div>
         <Nav />
         <Switch>
-          <Route path="/dashboard" component={UserIdeas} />
+          <Route path="/dashboard" component={Dashboard} />
           <Route path="/ideas/new" component={IdeaNew} />
           <Route path="/ideas/:id" component={IdeasShow} />
           <Route path="/about" component={About} />
@@ -36,4 +36,3 @@ ReactDOM.render(
   </Provider>
   , document.querySelector('#content-wrapper')
 )
-
