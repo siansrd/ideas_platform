@@ -7,10 +7,9 @@ import promise from 'redux-promise'
 
 import reducers from './reducers';
 import Nav from './components/nav.jsx';
-import IdeasIndex from './components/ideas_index.jsx';
+import Home from './components/home.jsx';
 import IdeaNew from './components/idea_new.jsx';
 import IdeasShow from './components/ideas_show.jsx'
-import About from './components/about.jsx';
 import Login from './components/login.jsx'
 import Footer from './components/footer.jsx';
 import Dashboard from './components/dashboard.jsx'
@@ -26,9 +25,8 @@ ReactDOM.render(
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/ideas/new" component={IdeaNew} />
           <Route path="/ideas/:id" component={IdeasShow} />
-          <Route path="/about" component={About} />
           <Route path="/login" component={Login} />
-          <Route path="/" component={IdeasIndex} />
+          <Route path="/" component={Home} />
         </Switch>
         <Footer />
       </div>
