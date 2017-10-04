@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Toolbar from 'react-md/lib/Toolbars/Toolbar'
 import { connect } from 'react-redux'
 import Button from 'react-md/lib/Buttons'
+import NavMain from './nav_main'
 
 
 class Nav extends React.Component {
@@ -11,7 +12,6 @@ class Nav extends React.Component {
   render(){
 
     let actions
-    const nav = <Link to='/'><Button icon>lightbulb_outline</Button></Link>
 
     if( !this.props.user.id ) {
       actions = [
@@ -32,7 +32,7 @@ class Nav extends React.Component {
     return(
         <Toolbar
           className="main-nav"
-          nav={nav}
+          nav={<NavMain />}
           actions={actions}
         >{ userName }</Toolbar>
 
