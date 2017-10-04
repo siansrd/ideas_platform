@@ -15,13 +15,11 @@ class Nav extends React.Component {
 
     if( !this.props.user.id ) {
       actions = [
-        <Link to='/about'>About</Link>,
         <Link to='/login'><Button icon>account_circle</Button></Link>
       ]
     } else {
       actions = [
-        <Link to='/dashboard'>Dashboard</Link>, 
-        <Link to='/about'>About</Link> ,
+        <Link to='/dashboard'>Dashboard</Link>,
         <Link to='/ideas/new'><Button icon>add_circle</Button></Link>
       ]
     }
@@ -34,8 +32,8 @@ class Nav extends React.Component {
     return(
         <Toolbar
           className="main-nav"
-          nav={nav} 
-          actions={actions} 
+          nav={nav}
+          actions={actions}
         >{ userName }</Toolbar>
 
     )
@@ -48,5 +46,3 @@ function mapStateToProps( { user } ){
 }
 
 export default connect( mapStateToProps )(Nav);
-
-
