@@ -4,6 +4,9 @@ import Toolbar from 'react-md/lib/Toolbars/Toolbar'
 import { connect } from 'react-redux'
 import Button from 'react-md/lib/Buttons'
 import NavMain from './nav_main'
+import MenuButton from 'react-md/lib/Menus/MenuButton';
+import FontIcon from 'react-md/lib/FontIcons';
+import { List, ListItem } from 'react-md/lib/Lists';
 
 
 class Nav extends React.Component {
@@ -19,8 +22,20 @@ class Nav extends React.Component {
       ]
     } else {
       actions = [
-        <Link to='/dashboard'>Dashboard</Link>,
-        <Link to='/ideas/new'><Button icon>add_circle</Button></Link>
+        <MenuButton
+          id="vert-menu"
+          flat
+          secondary
+          buttonChildren="menu"
+
+
+        >
+          <List className="md-cell md-paper md-paper--1">
+            <Link to='/dashabord'><ListItem primaryText="Dashboard" /></Link>
+            <Link to='/ideas/new'><ListItem primaryText="New Idea" /></Link>
+          </List>
+
+        </MenuButton>
       ]
     }
 
@@ -30,11 +45,11 @@ class Nav extends React.Component {
     }
 
     return(
-        <Toolbar
-          className="main-nav"
-          nav={<NavMain />}
-          actions={actions}
-        >{ userName }</Toolbar>
+      <Toolbar
+        className="main-nav"
+        nav={<NavMain />}
+        actions={actions}
+      >{ userName }</Toolbar>
 
     )
   }
