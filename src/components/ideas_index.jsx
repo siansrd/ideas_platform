@@ -31,40 +31,18 @@ class IdeasIndex extends React.Component {
           </Link>
         </div>
       )
-    }) 
+    })
   }
 
   render(){
-    if (!this.props.user.id) {
-      console.log("no user")
       return (
-        <div>
           <div className="content-body">
             <div className="row">
               <h2>Ideas</h2>
               {this.renderIdeas()}
             </div>
           </div>
-        </div>
       )
-    } else {
-      return (
-        <TabsContainer panelClassName="md-grid" colored>
-          <Tabs tabId="tab">
-            <Tab label="All Ideas">
-              <div className="row">
-                <div className="content-body">{this.renderIdeas()}</div>
-              </div>
-            </Tab>
-            <Tab label="My Ideas">
-              <div className="row">
-                <div className="content-body"><UserIdeas /></div>
-              </div>
-            </Tab>
-          </Tabs>
-        </TabsContainer> 
-      )
-    }
   }
 
 }

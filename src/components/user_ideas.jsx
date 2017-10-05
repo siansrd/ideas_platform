@@ -6,6 +6,8 @@ import _ from 'lodash'
 import Card from 'react-md/lib/Cards/Card'
 import CardTitle from 'react-md/lib/Cards/CardTitle'
 import Button from 'react-md/lib/Buttons'
+import { prettyDate } from '../helpers/formatter'
+import { Link } from 'react-router-dom'
 
 
 class UserIdeas extends Component {
@@ -34,23 +36,30 @@ class UserIdeas extends Component {
     }
     return _.map(ideasByUser, (idea) => {
       return (
-        <Card raise={ true } key={idea.id}>
-          <CardTitle title={idea.title} />
-          <p className="md-card-text">{idea.summary}</p>
-          <p className="md-card-text">{idea.description}</p>
-          <div className="md-card-text" ><Button 
-          icon primary 
-          onClick={ () => { this.onDeleteClick(idea.id) }}
-          >delete</Button></div>
-        </Card>
+
+        <div className="col s10" key={ idea.id }>
+          <Link to={`/ideas/${ idea.id }`}>
+            <Card raise={ true }>
+              <CardTitle title={ idea.title } />
+              <p className="md-card-text">{ idea.summary }</p>
+              <p className="md-card-text">Votes: { idea.votes } | { prettyDate(idea.created_at) }</p>
+              <div className="md-card-text" >
+                <Button
+                  icon primary
+                  onClick={ () => { this.onDeleteClick(idea.id) }}
+                >delete</Button></div>
+            </Card>
+          </Link>
+        </div>
       )
-    }) 
+    })
   }
 
   render() {
     return (
-      <div>
-        <div className="col s10" >
+      <div className="content-body">
+        <div className="row">
+          <h2>My Ideas</h2>
           {this.renderIdeas()}
         </div>
       </div>
