@@ -6,10 +6,6 @@ import { Link } from 'react-router-dom'
 import Card from 'react-md/lib/Cards/Card'
 import CardTitle from 'react-md/lib/Cards/CardTitle'
 import { prettyDate } from '../helpers/formatter'
-import Tabs from 'react-md/lib/Tabs/Tabs'
-import Tab from 'react-md/lib/Tabs/Tab'
-import TabsContainer from 'react-md/lib/Tabs/TabsContainer'
-import UserIdeas from './user_ideas'
 
 class IdeasIndex extends React.Component {
 

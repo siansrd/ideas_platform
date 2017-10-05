@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 import Button from 'react-md/lib/Buttons'
 import NavMain from './nav_main'
 import NavUser from './nav_user'
-import { List, ListItem } from 'react-md/lib/Lists';
 
 
 class Nav extends React.Component {
