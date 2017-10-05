@@ -2,10 +2,10 @@ import React from 'react';
 
 const About = () => {
   return (
-    <div className="content-body">
-      <h1>About</h1>
-      <p>All about</p>
-    </div>
+    <section id="banner">
+      <p>Ideas Platform is a collaborative planning tool to recording and developing ideas.</p>
+    </section>
+
   )
 }
 
