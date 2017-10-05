@@ -14,6 +14,7 @@ import Login from './components/login.jsx'
 import Footer from './components/footer.jsx';
 import Dashboard from './components/dashboard.jsx'
 import IdeasIndex from './components/ideas_index.jsx'
+import UserIdeas from './components/user_ideas.jsx'
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
@@ -27,6 +28,7 @@ ReactDOM.render(
           <Route path="/ideas/new" component={IdeaNew} />
           <Route path="/ideas/:id" component={IdeasShow} />
           <Route path="/ideas" component={IdeasIndex} />
+          <Route path="/my-ideas" component={UserIdeas} />
           <Route path="/login" component={Login} />
           <Route path="/" component={Home} />
         </Switch>
